@@ -28,6 +28,9 @@ dependencies:
   '@ionic/angular':
     specifier: ^7.0.5
     version: 7.0.5(@angular/core@16.0.0)(@angular/forms@16.0.0)(@angular/router@16.0.0)(rxjs@7.8.0)(zone.js@0.13.0)
+  '@material/material-color-utilities':
+    specifier: ^0.2.6
+    version: 0.2.6
   ionicons:
     specifier: ^7.1.0
     version: 7.1.0
@@ -1978,6 +1981,10 @@ packages:
   /@leichtgewicht/ip-codec@2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: true
+
+  /@material/material-color-utilities@0.2.6:
+    resolution: {integrity: sha512-pMdkH7PvuJQS1q9igiPFfrS04Zu1feDXOVV69uWe2kr+RcK+7v3OylIYMwJDIwip1pFdGyTY4KkMy6vPIA/uSw==}
+    dev: false
 
   /@ngtools/webpack@16.0.0(@angular/compiler-cli@16.0.0)(typescript@5.0.2)(webpack@5.80.0):
     resolution: {integrity: sha512-I5zjGtJu2wwIdM+OFUHXezmwTJ0wpParVJgCxR0cLd0CIbpRYSjOSZQN/nR9ZnTKAI5uFZ3MM2p/VRQGUUHUcw==}
