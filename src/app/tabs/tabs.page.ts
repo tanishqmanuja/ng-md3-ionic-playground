@@ -28,23 +28,23 @@ export type TabSchema = {
 export default class TabsPage {
 	readonly tabs: TabSchema[] = [
 		{
-		  routerPath: 'tab1',
-		  label: 'Label',
-		  icon: 'ellipse-outline',
-		  iconActive: 'ellipse',
+			routerPath: 'starred',
+			label: 'Starred',
+			icon: 'star-outline',
+			iconActive: 'star',
 		},
 		{
-		  routerPath: 'tab2',
-		  label: 'Label',
-		  icon: 'triangle-outline',
-		  iconActive: 'triangle',
-		  default: true,
+			routerPath: 'todo',
+			label: 'Todo',
+			icon: 'document-outline',
+			iconActive: 'document',
+			default: true,
 		},
 		{
-		  routerPath: 'tab3',
-		  label: 'Label',
-		  icon: 'square-outline',
-		  iconActive: 'square',
+			routerPath: 'lab',
+			label: 'Lab',
+			icon: 'flask-outline',
+			iconActive: 'flask',
 		},
-	  ];
+	];
 }

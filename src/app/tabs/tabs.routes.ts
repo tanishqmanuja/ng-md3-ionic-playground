@@ -7,21 +7,21 @@ export const routes: Routes = [
 		component: TabsPage,
 		children: [
 			{
-				path: "tab1",
-				loadComponent: () => import("./tab1/tab1.page")
+				path: "todo",
+				loadComponent: () => import("../todo/feature/todo/todo.page")
 			},
 			{
-				path: "tab2",
-				loadComponent: () => import("./tab2/tab2.page")
+				path: "starred",
+				loadComponent: () => import("../todo/feature/starred/starred.page")
 			},
 			{
-				path: "tab3",
-				loadComponent: () => import("./tab3/tab3.page")
+				path: "lab",
+				loadComponent: () => import("../lab/feature/lab/lab.page")
 			}
 		],
 	},{
 		path: "",
-		redirectTo: "/tabs/tab1",
+		redirectTo: "/tabs/todo",
 		pathMatch: "full"
 	},
 ];
