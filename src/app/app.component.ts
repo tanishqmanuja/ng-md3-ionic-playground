@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { Component } from "@angular/core";
+import { IonicModule } from "@ionic/angular";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
   imports: [IonicModule],
   template: `

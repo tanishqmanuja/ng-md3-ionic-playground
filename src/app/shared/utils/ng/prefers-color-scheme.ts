@@ -8,30 +8,30 @@ import { Observable } from "rxjs";
  * @returns {Observable<boolean>} An Observable that emits `true` if the current browser is in dark mode.
  */
 export function isDarkMode$(signal?: AbortSignal): Observable<boolean> {
-	return new Observable<boolean>(subscriber => {
-		if (!window.matchMedia) {
-			subscriber.error(new Error("No windows Media Match available"));
-		}
+  return new Observable<boolean>(subscriber => {
+    if (!window.matchMedia) {
+      subscriber.error(new Error("No windows Media Match available"));
+    }
 
-		function emitValue(event: Event) {
-			subscriber.next((event as MediaQueryListEvent).matches);
-		}
+    function emitValue(event: Event) {
+      subscriber.next((event as MediaQueryListEvent).matches);
+    }
 
-		const mediaListQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const mediaListQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-		if (signal) {
-			signal.onabort = () => {
-				mediaListQuery.removeEventListener("change", emitValue);
-				!subscriber.closed && subscriber.complete();
-			};
-		}
+    if (signal) {
+      signal.onabort = () => {
+        mediaListQuery.removeEventListener("change", emitValue);
+        !subscriber.closed && subscriber.complete();
+      };
+    }
 
-		mediaListQuery.addEventListener("change", emitValue);
-		subscriber.next(mediaListQuery.matches);
+    mediaListQuery.addEventListener("change", emitValue);
+    subscriber.next(mediaListQuery.matches);
 
-		return () => {
-			mediaListQuery.removeEventListener("change", emitValue);
-			!subscriber.closed && subscriber.complete();
-		};
-	});
+    return () => {
+      mediaListQuery.removeEventListener("change", emitValue);
+      !subscriber.closed && subscriber.complete();
+    };
+  });
 }
