@@ -23,7 +23,7 @@ ion-tab-bar {
 	height: var(--_height-tab-bar);
 	padding-inline: 0px;
 	padding-block: 0px var(--_bottom-padding);
-	box-shadow: 0 0 3px rgb(0 0 0 / 6%);
+	box-shadow: 0 0 var(--md-sys-elevation-level2) rgb(0 0 0 / 6%);
 	--border: none;
 	--background: var(--_clr-container);
 

@@ -1,7 +1,7 @@
 import { NgFor } from "@angular/common";
 import { Component } from "@angular/core";
 import { IonicModule } from "@ionic/angular";
-import { PageLayoutComponent } from "../../../shared/ui/page-layout/page-layout";
+import { PageLayoutComponent } from "../../../shared/ui/page-layout/page-layout.component";
 
 @Component({
   selector: "lab-page",

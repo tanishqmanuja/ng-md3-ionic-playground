@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { PageLayoutComponent } from "../../../shared/ui/page-layout/page-layout";
+import { PageLayoutComponent } from "../../../shared/ui/page-layout/page-layout.component";
 import { IonicModule } from "@ionic/angular";
 import { NgFor } from "@angular/common";
 
