@@ -20,6 +20,7 @@
     "@angular/router": "^16.0.1",
     "@ionic/angular": "^7.0.5",
     "@material/material-color-utilities": "^0.2.6",
+    "@material/web": "1.0.0-pre.8",
     "@rx-angular/cdk": "^15.0.0",
     "@rx-angular/state": "^15.0.0",
     "@rx-angular/template": "^15.2.0",
