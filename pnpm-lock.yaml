@@ -46,6 +46,9 @@ dependencies:
   ionicons:
     specifier: ^7.1.0
     version: 7.1.0
+  material-symbols:
+    specifier: ^0.5.5
+    version: 0.5.5
   rxjs:
     specifier: ~7.8.0
     version: 7.8.0
@@ -4674,6 +4677,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /material-symbols@0.5.5:
+    resolution: {integrity: sha512-NFUsjEVBNZvcRRqslY0RWnmlGgjhJkpDQkQs42o52gT2AmIbaP6V7wTRgyTkLAoD5VtpgpIx9eoOAXcH2ynwkg==}
+    dev: false
 
   /media-typer@0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
