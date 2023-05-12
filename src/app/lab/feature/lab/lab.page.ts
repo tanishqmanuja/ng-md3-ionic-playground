@@ -1,8 +1,24 @@
-import { NgFor } from "@angular/common";
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { AsyncPipe, NgFor } from "@angular/common";
+import {
+  AfterViewInit,
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  ViewChild,
+  inject,
+} from "@angular/core";
 import { IonicModule } from "@ionic/angular";
 import { IonMdHeadlineComponent } from "src/app/shared/ui/ion-md-header/ion-md-headline.component";
 import { IonMdHeaderBehaviourDirective } from "src/app/shared/ui/ion-md-header/ion-md-header-behaviour.directive";
+import { ThemeService } from "src/app/shared/data-access/theme.service";
+
+import { MdSwitch } from "@material/web/switch/switch";
+
+import "@material/web/switch/switch";
+import "@material/web/list/list";
+import "@material/web/list/list-item";
+import "@material/web/icon/icon";
 
 @Component({
   selector: "lab-page",
@@ -10,6 +26,7 @@ import { IonMdHeaderBehaviourDirective } from "src/app/shared/ui/ion-md-header/i
   imports: [
     IonicModule,
     NgFor,
+    AsyncPipe,
     IonMdHeadlineComponent,
     IonMdHeaderBehaviourDirective,
   ],
@@ -31,54 +48,35 @@ import { IonMdHeaderBehaviourDirective } from "src/app/shared/ui/ion-md-header/i
     <ion-content #content>
       <ion-md-headline #headline>Lab</ion-md-headline>
 
-      <ng-container *ngFor="let i of [1, 2, 3, 4, 5, 6, 7]">
-        <ion-list>
-          <ion-list-header>
-            <ion-skeleton-text
-              [animated]="true"
-              style="width: 80px"
-            ></ion-skeleton-text>
-          </ion-list-header>
-          <ion-item>
-            <ion-thumbnail slot="start">
-              <ion-skeleton-text [animated]="true"></ion-skeleton-text>
-            </ion-thumbnail>
-            <ion-label>
-              <h3>
-                <ion-skeleton-text
-                  [animated]="true"
-                  style="width: 80%;"
-                ></ion-skeleton-text>
-              </h3>
-              <p>
-                <ion-skeleton-text
-                  [animated]="true"
-                  style="width: 60%;"
-                ></ion-skeleton-text>
-              </p>
-              <p>
-                <ion-skeleton-text
-                  [animated]="true"
-                  style="width: 30%;"
-                ></ion-skeleton-text>
-              </p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ng-container>
+      <md-list>
+        <md-list-item
+          headline="Use Dark Theme"
+          supportingText="Will not change automatically."
+        >
+          <md-icon slot="start" data-variant="icon">{{
+            darkSwitch.selected ? "dark_mode" : "light_mode"
+          }}</md-icon>
+          <md-switch #darkSwitch (change)="changeTheme($event)" slot="end" />
+        </md-list-item>
+      </md-list>
     </ion-content>
   `,
-  styles: [
-    `
-      ion-list {
-        --ion-item-background: var(--md-sys-color-background, #000);
-      }
-
-      ion-skeleton-text {
-        --border-radius: 6px;
-      }
-    `,
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export default class LabPage {}
+export default class LabPage implements AfterViewInit {
+  @ViewChild("darkSwitch", { static: true, read: ElementRef })
+  darkSwitchRef!: ElementRef<MdSwitch>;
+
+  protected readonly themeService = inject(ThemeService);
+
+  ngAfterViewInit(): void {
+    this.darkSwitchRef.nativeElement.selected =
+      this.themeService.getUserColorScheme() === "dark";
+  }
+
+  changeTheme(ev: Event) {
+    const value = (ev.target as MdSwitch).selected;
+    this.themeService.setUserColorScheme(value ? "dark" : "light");
+  }
+}

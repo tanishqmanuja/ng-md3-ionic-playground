@@ -18,9 +18,11 @@
 @import "./style/ionic/variables.scss";
 
 /* Material Design Ionic Compatibility */
-@import "./style/material/tokens/elevation.css";
-@import "./style/material/tokens/typography.css";
-@import "./style/material/ionic/core.scss";
+@import "./style/material/tokens/index.scss";
+@import "./style/material/ionic/patch.scss";
+
+/* Material Design Icons */
+@import "material-symbols";
 
 /* Useful CSS Resets */
 @import "./style/resets.css";
