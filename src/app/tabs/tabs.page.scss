@@ -55,6 +55,12 @@ ion-tab-bar {
 			transition: color 250ms ease-in-out;
 		}
 
+		md-badge {
+			z-index: 2;
+			position: absolute;
+			top: 8px;
+		}
+
 		&.tab-selected {
 			ion-icon {
 				color: var(--_clr-label-text-active);
