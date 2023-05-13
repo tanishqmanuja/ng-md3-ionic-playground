@@ -11,9 +11,7 @@ ion-header {
 
 		padding-inline: 16px;
 
-		font-size: var(--md-sys-title-large-size);
-		font-weight: var(--md-sys-title-large-weight);
-		line-height: var(--md-sys-title-large-line-height);
+		font: var(--md-sys-typescale-title-large);
 	}
 
 	ion-buttons+ion-title {

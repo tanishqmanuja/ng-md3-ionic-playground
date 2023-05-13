@@ -62,18 +62,14 @@ type State = {
         padding-inline: 16px;
         padding-bottom: 24px;
 
-        font-size: var(--md-sys-headline-small-size);
-        font-weight: var(--md-sys-headline-small-weight);
-        line-height: var(--md-sys-headline-small-line-height);
+        font: var(--md-sys-typescale-headline-small);
 
         &.large {
           min-height: 88px;
 
           padding-bottom: 28px;
 
-          font-size: var(--md-sys-headline-medium-size);
-          font-weight: var(--md-sys-headline-medium-weight);
-          line-height: var(--md-sys-headline-medium-line-height);
+          font: var(--md-sys-typescale-headline-medium);
         }
       }
 
