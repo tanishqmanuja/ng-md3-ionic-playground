@@ -1,24 +1,22 @@
 import { BehaviorSubject } from "rxjs";
 
-const userColorScheme = {
+const STORAGE_KEY = "user-color-scheme";
+
+export const ColorScheme = {
   DARK: "dark",
   LIGHT: "light",
-  FOLLOW_SYSTEM: "system",
+  AUTO: "auto",
 } as const;
 
-export type UserColorScheme =
-  (typeof userColorScheme)[keyof typeof userColorScheme];
+export type UserColorScheme = (typeof ColorScheme)[keyof typeof ColorScheme];
 
 function _getUserColorScheme(): UserColorScheme {
-  const colorScheme = sessionStorage.getItem("userColorScheme");
+  const colorScheme = localStorage.getItem(STORAGE_KEY);
 
-  if (
-    colorScheme === userColorScheme.DARK ||
-    colorScheme === userColorScheme.LIGHT
-  ) {
+  if (colorScheme === ColorScheme.DARK || colorScheme === ColorScheme.LIGHT) {
     return colorScheme;
   } else {
-    return userColorScheme.FOLLOW_SYSTEM;
+    return ColorScheme.AUTO;
   }
 }
 
@@ -31,6 +29,6 @@ export function getUserColorScheme(): UserColorScheme {
   return _colorScheme$.getValue();
 }
 export function setUserColorScheme(colorScheme: UserColorScheme): void {
-  sessionStorage.setItem("userColorScheme", colorScheme);
+  localStorage.setItem(STORAGE_KEY, colorScheme);
   _colorScheme$.next(colorScheme);
 }

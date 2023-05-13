@@ -34,7 +34,7 @@ export class ThemeService {
     map(hexColor => themeFromSourceColor(argbFromHex(hexColor)))
   );
 
-  private readonly isDarkMode$ = userColorScheme$.pipe(
+  readonly isDarkMode$ = userColorScheme$.pipe(
     switchMap(scheme => {
       if (scheme === "dark") {
         return of(true);
