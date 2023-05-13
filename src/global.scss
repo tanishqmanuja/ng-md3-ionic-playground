@@ -17,12 +17,13 @@
 /* Ionic CSS variables */
 @import "./style/ionic/variables.scss";
 
-/* Material Design Ionic Compatibility */
-@import "./style/material/tokens/index.scss";
-@import "./style/material/ionic/patch.scss";
-
 /* Material Design Icons */
 @import "material-symbols";
+
+/* Material Design Ionic Compatibility */
+@import "./style/material/tokens/tokens.scss";
+@import "./style/material/support/support.scss";
+@import "./style/material/ionic/patch.scss";
 
 /* Useful CSS Resets */
 @import "./style/resets.css";
